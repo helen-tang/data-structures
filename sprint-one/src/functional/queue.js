@@ -4,6 +4,7 @@ var Queue = function() {
   // Use an object with numeric keys to store values
   var storage = {};
   var index = 0;
+  var pointer = 0;
 
   // Implement the methods below
 
@@ -13,21 +14,20 @@ var Queue = function() {
   };
 
   someInstance.dequeue = function() {
-    var toBeDeleted = storage[0];
-    delete storage[0];
-    var storageArray = Object.keys(storage);
-    for (var i = 0; i < storageArray.length; i++) {
-      storage[i] = storage[i + 1];
+    var toBeDeleted = storage[pointer];
+    pointer ++;
+    //Conditional put in place to avoid dequeueing more than you've enqueued
+    if (pointer > index) {
+      pointer === index;
     }
-    index --;
     return toBeDeleted;
   };
 
   someInstance.size = function() {
-    if (index < 0) {
-      index = 0;
+    if (index - pointer < 0) {
       return 0;
-    } return index;
+    }
+    return index - pointer;
   };
 
   return someInstance;
