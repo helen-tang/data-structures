@@ -19,12 +19,15 @@ var Queue = function() {
     for (var i = 0; i < storageArray.length; i++) {
       storage[i] = storage[i + 1];
     }
-    index--;
+    index --;
     return toBeDeleted;
   };
 
   someInstance.size = function() {
-    return Object.keys(storage).length;
+    if (index < 0) {
+      index = 0;
+      return 0;
+    } return index;
   };
 
   return someInstance;
