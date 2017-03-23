@@ -4,6 +4,9 @@ var Stack = function() {
 
   var someInstance = {};
 
+  someInstance.storage = {};
+  someInstance.index = 0;
+
   extend(someInstance, stackMethods);
   return someInstance;
 };
@@ -16,16 +19,22 @@ var extend = function(instance, methods) {
 
 var stackMethods = {};
 
-stackMethods.push = function() {
-
+stackMethods.push = function(value) {
+  this.storage[this.index] = value;
+  this.index++;
 };
 
 stackMethods.pop = function() {
-
+  var toBeDeleted = this.storage[this.index - 1];
+  this.index--;
+  return toBeDeleted;
 };
 
 stackMethods.size = function() {
-    console.log( this);
-    return Object.keys(this).length;
+  if (this.index < 0) {
+    return 0;
+  } else {
+    return this.index;
+  }
 };
 
