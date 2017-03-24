@@ -5,18 +5,25 @@ var LinkedList = function() {
 
   list.addToTail = function(value) {
     var newNode = Node(value);
-    list.head = list.tail;
-    list.tail = newNode;
+    
+    if (list.head === null) {
+      list.tail = newNode;
+      list.head = list.tail;
+    } else {
+      list.tail.next = newNode;
+      list.tail = newNode;
+    }
   };
 
   list.removeHead = function() {
-
-
+    var decapitated = list.head.value;
+    list.head = list.head.next;
+    return decapitated;
   };
 
   list.contains = function(target) {
-  };
 
+  };
   return list;
 };
 
