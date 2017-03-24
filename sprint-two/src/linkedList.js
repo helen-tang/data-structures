@@ -23,24 +23,23 @@ var LinkedList = function() {
 
   list.contains = function(target) {
     var result = false;
-    var tempNode;
+    var tempNode = list.head;
 
-    if (list.head.value === target) {
-      return true;
-    } else /*list.head.value doesn't equal*/ {
-      tempNode = list.head.next;
-      console.log(tempNode);
-      while (tempNode.value !== target && tempNode.next !== null) {
-        tempNode === tempNode.next;
-        if (tempNode.value === target) {
-          return true;
-        }
-        result = false;
+    var searchList = function(node) {
+      if (node.value === target) {
+        result = true;
+        return result;
       }
-      // result = true;
-    }
+      if (node.next !== null) {
+        node = node.next;
+        searchList(node);
+      } 
+    };
+
+    searchList(tempNode);
     return result;
   };
+
   return list;
 };
 
