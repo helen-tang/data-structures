@@ -12,7 +12,7 @@ var LinkedList = function() {
     } else {
       list.tail.next = newNode;
       list.tail = newNode;
-    }
+    } 
   };
 
   list.removeHead = function() {
@@ -22,7 +22,24 @@ var LinkedList = function() {
   };
 
   list.contains = function(target) {
+    var result = false;
+    var tempNode;
 
+    if (list.head.value === target) {
+      return true;
+    } else /*list.head.value doesn't equal*/ {
+      tempNode = list.head.next;
+      console.log(tempNode);
+      while (tempNode.value !== target && tempNode.next !== null) {
+        tempNode === tempNode.next;
+        if (tempNode.value === target) {
+          return true;
+        }
+        result = false;
+      }
+      // result = true;
+    }
+    return result;
   };
   return list;
 };
