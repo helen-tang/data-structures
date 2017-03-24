@@ -1,6 +1,5 @@
 var Tree = function(value) {
   var newTree = {};
-  console.log(value);
 
   newTree.value = value;
   // your code here
@@ -21,15 +20,34 @@ var extend = function(instance, methods) {
 var treeMethods = {};
 
 treeMethods.addChild = function(value) {
-   
-    this.children[0] = Tree(value);
+  if (this.value !== undefined) {
+    this.value = value;
+  } 
+  this.children[this.index] = Tree(value);
+  this.index++;
    
 };
 
 treeMethods.contains = function(target) {
-  // var traverseTree = function(node) {
-    
-  // };
+  var result = false;
+
+  var traverseTree = function(node) {
+
+    if (node.value === target) {
+      result = true;
+      return true;
+    } 
+
+    if (node.children[0] !== null) {
+      for (var i = 0; i < node.children.length; i++) {
+        traverseTree(node.children[i]);  
+      }
+    }
+  };
+  console.log(this);
+  traverseTree(this);
+
+  return result;
 };
 
 
