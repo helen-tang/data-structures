@@ -54,4 +54,11 @@ treeMethods.contains = function(target) {
 
 /*
  * Complexity: What is the time complexity of the above functions?
+ treeMethods.addchild is O(1) --> constant time
+ treeMethods.contains is O(n) --> linear time 
+    --> you might have to look through every node. Recursion affects time 
+    complexity similarly to how for loops do - they're methods to traverse. 
+    They, in themselves, don't directly affect time complexity.
+    --> DO NOT: associate loops/recursion with a particular Big-O
+        --> sometimes, it's a shortcut, but it doesn't guarantee anything
  */
