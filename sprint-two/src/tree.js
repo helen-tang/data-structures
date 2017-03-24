@@ -44,7 +44,6 @@ treeMethods.contains = function(target) {
       }
     }
   };
-  console.log(this);
   traverseTree(this);
 
   return result;
