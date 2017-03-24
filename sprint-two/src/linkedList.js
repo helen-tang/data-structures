@@ -54,4 +54,10 @@ var Node = function(value) {
 
 /*
  * Complexity: What is the time complexity of the above functions?
+    list.addToTail is O(1) --> Constant time
+    list.removeHead is also O(1) --> Constant time
+    list.contains is O(n) --> Linear time
+
+    This is why linked lists are good for adding and removing things from 
+    the beginning or the end and not so much anything from the middle.
  */
